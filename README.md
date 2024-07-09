@@ -9,6 +9,8 @@ This makes it significantly easier to include in Zig projects, especially becaus
   For example, ```glm_mat4_mulv``` in cglm becomes ```glm.mat4.mulv``` in zglm (assuming ```const glm = @import("zglm")```).
   The exeption to this rule is when cglm functions translate directly to their namespace, such at ```glm_vec4```.
   In this case, the zglm function repeats the last identifier, so ```glm_vec4``` would translate to ```glm.vec4.vec4```.
+- Some cglm function are less restrictive with input types than zig ```@Vectors``` allow.
+  These have ```anytype``` in place of their c types, and give compile errors when fed invalid types.
 - zglm types are aliases similar to in cglm, capitalized by Zig convention, and are found in their respective src files.
   e.g. ```mat4``` in cglm is ```glm.mat4.Mat4``` in zglm.
 - cglm MACRO constants follow a similar pattern, becoming Zig global constants.
