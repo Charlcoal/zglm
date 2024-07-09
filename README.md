@@ -18,3 +18,4 @@ This makes it significantly easier to include in Zig projects, especially becaus
 - cglm function-like MACROS, where possible, are implimented as Zig functions.
 - Because Zig's function parameters are immutable, zglm functions accept values rather than input-only pointers.
   For example, ```glm_mat4_mulv(&mat4, &vec4, &out)``` in cglm becomes ```glm.mat4.mulv(mat4, vec4, &out)``` in zglm.
+- Functions that can be accomlpished with simple ```@Vector``` operators are marked with "REDUNDANT" in auto-doc comments
