@@ -1,6 +1,9 @@
 # ZGLM
 This library aims to match the functionality of [cglm](https://github.com/recp/cglm/) one to one, using Zig's native Vector types. 
 This makes it significantly easier to include in Zig projects, especially because it encodes cglm's allignment requirements into Zig types.
+**This library does NOT bother with struct/call/inline versions of the cglm interface, as zig has a clear way of implimenting cglm functions and rarely benifits from the "inline" keyword.**
+Instead, zglm impliments cglm functions as-is without attempting to force inlining.
+If real-world performance testing demands inline functions, the src files are well-organized and can simply be copied/modified with an "inline" keyword here and there.
 ### Using ZGLM
 - zglm src files follow cglm header files.
 - zglm adheres to the [cglm docs](http://cglm.readthedocs.io) as much as possible, while adding auto-doc comments to code.
@@ -18,4 +21,4 @@ This makes it significantly easier to include in Zig projects, especially becaus
 - cglm function-like MACROS, where possible, are implimented as Zig functions.
 - Because Zig's function parameters are immutable, zglm functions accept values rather than input-only pointers.
   For example, ```glm_mat4_mulv(&mat4, &vec4, &out)``` in cglm becomes ```glm.mat4.mulv(mat4, vec4, &out)``` in zglm.
-- Functions that can be accomlpished with simple ```@Vector``` operators are marked with "REDUNDANT" in auto-doc comments
+- Functions that can be accomlpished with singular, simple ```@Vector``` operators are marked with "REDUNDANT" in auto-doc comments
